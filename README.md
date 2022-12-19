@@ -18,3 +18,7 @@ The desired output is is to play a 5 round game of rock paper scissors that keep
 Given your inputs, what are the steps necessary to return the desired output? The algorithm in pseudocode for this problem:
 Get the users input with a prompt, get the computers input with a function called getPcChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
 To play one round of rock paper scissors write a function called playRound it will take two parameters the playerSelection and computerSelection and then return a string that declares the winner.To play 5 rounds write a function called game that will call on playRound and use a for loop to play a 5 round game that keeps score and reports a winner or loser at the end.
+
+Divide & Conquer:
+Divided these into sub problems to spread to load Once you solved every sub-problem, then connect the dots this will give you the solution to the original problem. 
+first one deal with getting the users input, second one deal with the getPcChoice function, third we tackle the playRound function and finally the game function last.
