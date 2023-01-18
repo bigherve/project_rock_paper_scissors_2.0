@@ -1,7 +1,7 @@
-function getUserChoice() {
-    let userInput = prompt('Choose between rock, paper or scissors', '').toLowerCase();
-    return userInput;
-}
+let playerScore = 0;
+let pcScore = 0;
+const buttons = document.querySelectorAll('.btns');
+const para = document.querySelector('#para');
 
 function getPcChoice() {
     let options = ['rock', 'paper', 'scissors'];
@@ -9,49 +9,39 @@ function getPcChoice() {
     return random;
 }
 
-let playerScore = 0;
-let pcScore = 0;
+function playRound(playerSelection) {
+    let pcSelection = getPcChoice();
+    let result = '';
 
-function playRound(playerSelection, pcSelection) {
-    playerSelection = getUserChoice();
-    pcSelection = getPcChoice();
-    if (playerSelection === 'rock' && pcSelection === 'paper') {
-        alert('You lose!');
-        pcScore++;
-    } else if (playerSelection === 'rock' && pcSelection === 'scissors') {
-        alert('You win!');
+    if (
+        (playerSelection === 'rock' && pcSelection === 'scissors') ||
+        (playerSelection === 'paper' && pcSelection === 'rock') ||
+        (playerSelection === 'scissors' && pcSelection === 'paper')
+    ) {
         playerScore++;
-    } else if (playerSelection === 'paper' && pcSelection === 'rock') {
-        alert('You win!');
-        playerScore++;
-    } else if (playerSelection === 'paper' && pcSelection === 'scissors') {
-        alert('You lose!');
-        pcScore++;
-    } else if (playerSelection === 'scissors' && pcSelection === 'rock') {
-        alert('You lose!');
-        pcScore++;
-    } else if (playerSelection === 'scissors' && pcSelection === 'paper') {
-        alert('You win!');
-        playerScore++;
-    } else if (playerSelection === 'rock' && pcSelection === 'rock' ||
-        playerSelection === 'paper' && pcSelection === 'paper' ||
-        playerSelection === 'scissors' && pcSelection === 'scissors') {
-        alert('It\'s a draw');
-    }
-}
+        result = `Yay you win! ${playerSelection} beats ${pcSelection} 
+        Player score: ${playerScore} Computer score: ${pcScore}.`;
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-    if (playerScore > pcScore) {
-        alert(`You win ${playerScore} to ${pcScore}`);
-    } else if (playerScore < pcScore) {
-        alert(`You lose ${pcScore} to ${playerScore}`);
+        if (playerScore === 5) {
+            result = `You win the game! With a score of ${playerScore} to ${pcScore} YAY.`;
+        }
+    } else if (playerSelection === pcSelection) {
+        result = `It's a draw you both got ${playerSelection} go again.`;
     } else {
-        alert('It\'s a draw');
+        pcScore++;
+        result = `You lose! ${pcSelection} beats ${playerSelection}
+        Player score: ${playerScore} Computer score: ${pcScore}.`;
+
+        if (pcScore === 5) {
+            result = `The computer wins! With a score of ${pcScore} to ${playerScore} BOO.`;
+        }
     }
-    console.log(`playerScore ${playerScore} pcScore ${pcScore}`);
+    para.textContent = result;
+    return;
 }
 
-game();
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.value);
+    });
+});

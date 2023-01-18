@@ -35,7 +35,7 @@ So we will be going from a prompt to a few buttons that will let the player chos
 It will have three buttons, one for each selection ‘Rock’, ‘Paper’ or ‘Scissors’.
 Our desired output is to display the running score, and announce a winner of the game once one player reaches 5 points.
 pseudocode:
-Make three buttons one for each selection ‘Rock’, ‘Paper’ or ‘Scissors’, then remove the logic that plays 5 rounds. Add event listeners to the buttons that call the playRound function with the correct playerSelection when a button is clicked. Add a div to display the games results and change all of the console.logs into DOM methods. Display the running score, and announce a winner of the game once one player reaches 5 points.
+Make three buttons one for each selection ‘Rock’, ‘Paper’ or ‘Scissors’, then remove the logic that plays 5 rounds. Add event listeners to the buttons that call the playRound function with the correct playerSelection when a button is clicked. Add a div to display the games results and change all of the console.logs into DOM methods to display the running score, and announce a winner of the game once one player reaches 5 points.
 
 Divide & Conquer:
 I'll start by making the buttons then I'll connect them to the DOM and finally I'll make the div to show the score and announce the winner.
