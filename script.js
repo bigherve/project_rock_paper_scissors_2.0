@@ -13,6 +13,10 @@ function disableButtons() {
     buttons.forEach((off) => {
         off.disabled = true;
     });
+
+    buttons.forEach((btn) => {
+        btn.style.color = '#f8f9fa';
+    });
 }
 
 function palyAgain() {

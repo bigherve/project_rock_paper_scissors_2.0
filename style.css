@@ -1,0 +1,67 @@
+* {
+    font-family: monaco;
+    font-weight: bold;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f00;
+}
+
+#container {
+    display: grid;
+    width: 500px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    border: 10px solid #000;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-rows: repeat(5, 100px);
+    grid-template-areas: 'h1' 'h2' 'results' 'btn' 'playagain';
+}
+
+button {
+    background-color: #f8f9fa;
+    border: 1px solid #3c4043;
+    border-radius: 4px;
+    color: #3c4043;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+}
+
+button:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    background-color: #222323;
+    border: 1px solid #222323;
+    color: #aaa;
+}
+
+#headline {
+    grid-area: h1;
+    font-size: 30px;
+}
+
+#headline2 {
+    grid-area: h2;
+}
+
+#buttons {
+    grid-area: btn;
+}
+
+#output {
+    grid-area: results;
+}
+
+#play-again {
+    grid-area: playagain;
+}
