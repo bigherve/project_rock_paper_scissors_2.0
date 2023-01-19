@@ -2,11 +2,21 @@ let playerScore = 0;
 let pcScore = 0;
 const buttons = document.querySelectorAll('.btns');
 const para = document.querySelector('#para');
+const restartGame = document.querySelector('#play-again');
 
 function getPcChoice() {
     let options = ['rock', 'paper', 'scissors'];
-    let random = options[Math.floor(Math.random() * options.length)];
-    return random;
+    return options[Math.floor(Math.random() * options.length)];
+}
+
+function disableButtons() {
+    buttons.forEach((off) => {
+        off.disabled = true;
+    });
+}
+
+function palyAgain() {
+    window.location.reload();
 }
 
 function playRound(playerSelection) {
@@ -24,6 +34,7 @@ function playRound(playerSelection) {
 
         if (playerScore === 5) {
             result = `You win the game! With a score of ${playerScore} to ${pcScore} YAY.`;
+            disableButtons();
         }
     } else if (playerSelection === pcSelection) {
         result = `It's a draw you both got ${playerSelection} go again.`;
@@ -34,11 +45,14 @@ function playRound(playerSelection) {
 
         if (pcScore === 5) {
             result = `The computer wins! With a score of ${pcScore} to ${playerScore} BOO.`;
+            disableButtons();
         }
     }
     para.textContent = result;
     return;
 }
+
+restartGame.addEventListener('click', palyAgain);
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
