@@ -1,5 +1,7 @@
 # project_rock_paper_scissors_2.0
 
+visit site at https://bigherve.github.io/project_rock_paper_scissors_2.0/
+
 I am going to make a rock paper scissors game that will play against the computer in v1.0 it will play in the console and in v2.0 I will add Graphical User Interface with buttons and text.
 
 v1.0
