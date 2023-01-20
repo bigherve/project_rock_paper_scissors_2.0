@@ -61,5 +61,6 @@ restartGame.addEventListener('click', palyAgain);
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playRound(button.value);
+        console.log(button.value);
     });
 });
